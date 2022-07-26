@@ -1,5 +1,6 @@
 import getCats from './getCats';
 import displayPopup from '../src/displayPopup';
+
 const main = document.querySelector('main');
 
 const displayCards = async () => {
