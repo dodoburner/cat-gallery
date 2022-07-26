@@ -9,3 +9,7 @@ commentBtns.forEach((btn, index) => {
     displayPopup(index);
   });
 });
+
+// fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/19XTEH8RQiXryaA222mb/comments?item_id=Abyssinian')
+// .then(res => res.text())
+// .then(data => console.log(data))
