@@ -1,8 +1,14 @@
 import './styles.css'
-import catImage from './images/cat-551554_1280.jpg';
+import displayCards from '../modules/displayCards';
+import logo from './images/cat-logo.png';
 
-const images = document.querySelectorAll('img');
+const logoContainer = document.querySelector('.logo');
 
-images.forEach(element => {
-  element.src = catImage;
-});
+logoContainer.src = logo;
+
+displayCards();
+
+const comment = document.querySelectorAll('.comment-btn');
+
+
+

@@ -9,13 +9,33 @@
  */
 (self["webpackChunkcat_gallery"] = self["webpackChunkcat_gallery"] || []).push([["main"],{
 
+/***/ "./modules/displayCards.js":
+/*!*********************************!*\
+  !*** ./modules/displayCards.js ***!
+  \*********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _getCats_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./getCats.js */ \"./modules/getCats.js\");\n\n\nconst main = document.querySelector('main');\n\nconst displayCards = async() => {\n  const response = await (0,_getCats_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"])();\n  const catsArray = await response.slice(0, 6);\n  catsArray.forEach(cat => {\n    const card = document.createElement('div');\n    card.classList.add('.card');\n    card.innerHTML = `\n    <div class=\"card-container\">\n    <img src=\"${cat.image_link}\" alt=\"\">\n    <div class=\"cat-name\">\n      <p>${cat.name}</p>\n      <button class=\"like-btn\"><i class=\"fa-regular fa-heart\"></i></button>\n    </div>\n    <span>0 likes</span>\n    <button class=\"comment-btn\">Comments</button>\n  </div>\n    `\n    main.appendChild(card);\n  });\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (displayCards);\n\n//# sourceURL=webpack://cat-gallery/./modules/displayCards.js?");
+
+/***/ }),
+
+/***/ "./modules/getCats.js":
+/*!****************************!*\
+  !*** ./modules/getCats.js ***!
+  \****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst getCats = async () => {\n  const response = await fetch('https://api.api-ninjas.com/v1/cats?playfulness=5', {\n    headers: {\n      'X-Api-Key': 'nQBIrzqSOqUK8zDmuTBkrw==Ng6tKGAI9cHzhz07',\n    },\n    contentType: 'application/json',\n  });\n  const data = await response.json();\n  return data;\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (getCats);\n\n\n//# sourceURL=webpack://cat-gallery/./modules/getCats.js?");
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/dist/cjs.js!./src/styles.css":
 /*!**************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js!./src/styles.css ***!
   \**************************************************************/
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../node_modules/css-loader/dist/runtime/noSourceMaps.js */ \"./node_modules/css-loader/dist/runtime/noSourceMaps.js\");\n/* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\");\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);\n// Imports\n\n\nvar ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));\n// Module\n___CSS_LOADER_EXPORT___.push([module.id, \"* {\\n  box-sizing: border-box;\\n  margin: 0;\\n  padding: 0;\\n  list-style: none;\\n  text-decoration: none;\\n  color: black;\\n}\\n\\nnav {\\n  display: flex;\\n  align-items: center;\\n  justify-content: space-between;\\n  padding: 10px 100px;\\n}\\n\\nul {\\n  display: flex;\\n  gap: 50px;\\n}\\n\\n\", \"\"]);\n// Exports\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);\n\n\n//# sourceURL=webpack://cat-gallery/./src/styles.css?./node_modules/css-loader/dist/cjs.js");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../node_modules/css-loader/dist/runtime/noSourceMaps.js */ \"./node_modules/css-loader/dist/runtime/noSourceMaps.js\");\n/* harmony import */ var _node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\");\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);\n// Imports\n\n\nvar ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));\n// Module\n___CSS_LOADER_EXPORT___.push([module.id, \"* {\\n  box-sizing: border-box;\\n  margin: 0;\\n  padding: 0;\\n  list-style: none;\\n  text-decoration: none;\\n  color: black;\\n}\\n\\nbody {\\n  background-color: #fcde67;\\n}\\n\\nnav {\\n  display: flex;\\n  align-items: center;\\n  justify-content: space-between;\\n  padding: 30px 100px;\\n}\\n\\nul {\\n  display: flex;\\n  gap: 50px;\\n}\\n\\nmain {\\n  display: grid;\\n  grid-template-columns: repeat(3, 1fr);\\n  row-gap: 50px;\\n  margin-top: 8%;\\n}\\n\\n.card {\\n  display: flex;\\n  justify-content: center;\\n}\\n\\n.card-container {\\n  display: flex;\\n  flex-direction: column;\\n  max-width: 180px;\\n  padding: 10px 15px;\\n  background-color: white;\\n  border-radius: 10px;\\n}\\n\\n.cat-name {\\n  display: flex;\\n  justify-content: space-between;\\n  margin: 5px 0;\\n}\\n\\nimg {\\n  width: 150px;\\n}\\n\\nspan {\\n  align-self: flex-end;\\n  margin-bottom: 5px;\\n}\\n\\nfooter {\\n  display: flex;\\n  align-items: center;\\n  padding: 0 50px;\\n  margin-top: 50px;\\n  font-size: 24px;\\n  background-color: #5bccf6;\\n  height: 100px;\\n}\\n\", \"\"]);\n// Exports\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);\n\n\n//# sourceURL=webpack://cat-gallery/./src/styles.css?./node_modules/css-loader/dist/cjs.js");
 
 /***/ }),
 
@@ -115,17 +135,17 @@ eval("\n\n/* istanbul ignore next  */\nfunction styleTagTransform(css, styleElem
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _styles_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles.css */ \"./src/styles.css\");\n/* harmony import */ var _images_cat_551554_1280_jpg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./images/cat-551554_1280.jpg */ \"./src/images/cat-551554_1280.jpg\");\n\n\n\nconst images = document.querySelectorAll('img');\n\nimages.forEach(element => {\n  element.src = _images_cat_551554_1280_jpg__WEBPACK_IMPORTED_MODULE_1__;\n});\n\n//# sourceURL=webpack://cat-gallery/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _styles_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles.css */ \"./src/styles.css\");\n/* harmony import */ var _modules_displayCards__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../modules/displayCards */ \"./modules/displayCards.js\");\n/* harmony import */ var _images_cat_logo_png__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./images/cat-logo.png */ \"./src/images/cat-logo.png\");\n\n\n\n\nconst logoContainer = document.querySelector('.logo');\n\nlogoContainer.src = _images_cat_logo_png__WEBPACK_IMPORTED_MODULE_2__;\n\n(0,_modules_displayCards__WEBPACK_IMPORTED_MODULE_1__[\"default\"])();\n\nconst comment = document.querySelectorAll('.comment-btn');\n\n\n\n\n\n//# sourceURL=webpack://cat-gallery/./src/index.js?");
 
 /***/ }),
 
-/***/ "./src/images/cat-551554_1280.jpg":
-/*!****************************************!*\
-  !*** ./src/images/cat-551554_1280.jpg ***!
-  \****************************************/
+/***/ "./src/images/cat-logo.png":
+/*!*********************************!*\
+  !*** ./src/images/cat-logo.png ***!
+  \*********************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-eval("module.exports = __webpack_require__.p + \"c39ccdbe7c4359aadeca.jpg\";\n\n//# sourceURL=webpack://cat-gallery/./src/images/cat-551554_1280.jpg?");
+eval("module.exports = __webpack_require__.p + \"4fac66be743ca7b480fa.png\";\n\n//# sourceURL=webpack://cat-gallery/./src/images/cat-logo.png?");
 
 /***/ })
 
