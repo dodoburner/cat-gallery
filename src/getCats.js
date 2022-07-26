@@ -6,7 +6,6 @@ const getCats = async() => {
     contentType: 'application/json',
   })
   const data = await response.json()
-  console.log(data)
   return data
 }
 

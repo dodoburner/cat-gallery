@@ -7,6 +7,10 @@
   color: black;
 }
 
+.fixed {
+  position: fixed;
+}
+
 body {
   background-color: #fcde67;
 }
@@ -18,7 +22,7 @@ nav {
   padding: 30px 100px;
 }
 
-ul {
+.links ul {
   display: flex;
   gap: 50px;
 }
@@ -67,12 +71,4 @@ footer {
   font-size: 24px;
   background-color: #5bccf6;
   height: 100px;
-}
-
-.popup {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  background-color: #fcde67;
-  width: 100%;
 }
