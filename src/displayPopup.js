@@ -1,27 +1,8 @@
-// const closeBnt = document.querySelector('.close-btn')
 import getCats from './getCats'
 
 const displayPopup = async(index) => {
-  // let data = await getCats()
-  // let dataItem = data[0]
-  let dataItem = {
-    "length": "12 to 16 inches",
-    "origin": "Southeast Asia",
-    "image_link": "https://api-ninjas.com/images/cats/abyssinian.jpg",
-    "family_friendly": 3,
-    "shedding": 3,
-    "general_health": 2,
-    "playfulness": 5,
-    "children_friendly": 5,
-    "grooming": 3,
-    "intelligence": 5,
-    "other_pets_friendly": 5,
-    "min_weight": 6,
-    "max_weight": 10,
-    "min_life_expectancy": 9,
-    "max_life_expectancy": 15,
-    "name": "Abyssinian"
-  }
+  let data = await getCats()
+  let dataItem = data[index]
   let popup = document.createElement('div')
   popup.classList.add('popup')
   popup.innerHTML = `
@@ -61,4 +42,3 @@ const displayPopup = async(index) => {
 }
 
 export default displayPopup
-
