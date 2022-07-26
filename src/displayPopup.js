@@ -1,10 +1,10 @@
-import getCats from './getCats'
+import getCats from './getCats';
 
-const displayPopup = async(index) => {
-  let data = await getCats()
-  let dataItem = data[index]
-  let popup = document.createElement('div')
-  popup.classList.add('popup')
+const displayPopup = async (index) => {
+  const data = await getCats();
+  const dataItem = data[index];
+  const popup = document.createElement('div');
+  popup.classList.add('popup');
   popup.innerHTML = `
   <div class="popup-container">
     <div class="close-btn"><i class="fa-solid fa-xmark"></i></div>
@@ -32,13 +32,13 @@ const displayPopup = async(index) => {
       <button>Comment</button>
     </form>
   </div>
-  `
-  document.body.appendChild(popup)
-  let closeBtn = document.querySelector('.close-btn')
+  `;
+  document.body.appendChild(popup);
+  const closeBtn = document.querySelector('.close-btn');
   closeBtn.addEventListener('click', () => {
-    const popup = document.querySelector('.popup')
-    document.body.removeChild(popup)
-  })
-}
+    const popup = document.querySelector('.popup');
+    document.body.removeChild(popup);
+  });
+};
 
-export default displayPopup
+export default displayPopup;
