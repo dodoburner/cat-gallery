@@ -10,6 +10,6 @@ commentBtns.forEach((btn, index) => {
   });
 });
 
-// fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/19XTEH8RQiXryaA222mb/comments?item_id=Abyssinian')
+// fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/19XTEH8RQiXryaA222mb/comments?item_id=Cornish_Rex')
 // .then(res => res.text())
 // .then(data => console.log(data))

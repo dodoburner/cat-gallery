@@ -1,9 +1,11 @@
 import getCats from './getCats';
 import addComment from './addComment';
+import displayComments from'./displayComments';
 
 const displayPopup = async (index) => {
   const data = await getCats();
   const dataItem = data[index];
+  const itemID = dataItem.name.replace(/ /g, "_")
   const popup = document.createElement('div');
   popup.classList.add('popup');
   popup.innerHTML = `
@@ -33,6 +35,7 @@ const displayPopup = async (index) => {
   </div>
   `;
   document.body.appendChild(popup);
+  await displayComments(itemID)
 
   const closeBtn = document.querySelector('.close-btn');
   closeBtn.addEventListener('click', () => {
@@ -45,7 +48,7 @@ const displayPopup = async (index) => {
   const commentInput = document.querySelector('#comment-input')
   form.addEventListener('submit', (e) => {
     e.preventDefault()
-    addComment(dataItem.name, usernameInput.value, commentInput.value)
+    addComment(itemID, usernameInput.value, commentInput.value)
   })
 };
 

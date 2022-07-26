@@ -1,4 +1,5 @@
 import createDate from "./createDate"
+import appendComment from "./appendComment"
 
 const addComment = async(id, username, comment) => {
   await fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/19XTEH8RQiXryaA222mb/comments', {
@@ -13,11 +14,7 @@ const addComment = async(id, username, comment) => {
     },
   })
 
-  const commentsContainer = document.querySelector('.popup-comments ul')
-  const newComment = document.createElement('li')
-  newComment.innerHTML = `
-    ${createDate()} ${username}: ${comment}
-  `
+  appendComment(createDate(), username, comment)
   commentsContainer.appendChild(newComment)
 }
 
