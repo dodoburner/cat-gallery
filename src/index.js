@@ -1,8 +1,11 @@
-import './styles.css'
-import catImage from './images/cat-551554_1280.jpg';
+import './styles.css';
+import './popup.css';
+import displayPopup from './displayPopup';
 
-const images = document.querySelectorAll('img');
+const commentBtns = document.querySelectorAll('.card button');
 
-images.forEach(element => {
-  element.src = catImage;
+commentBtns.forEach((btn, index) => {
+  btn.addEventListener('click', () => {
+    displayPopup(index);
+  });
 });
