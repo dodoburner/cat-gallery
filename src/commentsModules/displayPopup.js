@@ -1,10 +1,6 @@
-<<<<<<< HEAD:src/displayPopup.js
 import getCats from '../modules/getCats';
-=======
-import getCats from '../getCats';
 import addComment from './addComment';
 import displayComments from './displayComments';
->>>>>>> dev:src/commentsModules/displayPopup.js
 
 const displayPopup = async (index) => {
   const data = await getCats();

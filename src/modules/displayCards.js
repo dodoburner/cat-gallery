@@ -1,13 +1,14 @@
 import getCats from './getCats';
-import addLikes from '../src/addLikes';
+import addLikes from '../addLikes';
 import displayLikes from './displayLikes';
-
+import displayPopup from '../commentsModules/displayPopup'
 const main = document.querySelector('main');
 
 const displayCards = async () => {
   const likesArray = await displayLikes();
   const response = await getCats();
   const catsArray = await response.slice(0, 6);
+
   catsArray.forEach((cat) => {
     const card = document.createElement('div');
     card.classList.add('.card');
@@ -31,7 +32,16 @@ const displayCards = async () => {
     `;
     main.appendChild(card);
   });
+
   const likeBtn = document.querySelectorAll('.like-btn');
+  const commentBtns = document.querySelectorAll('.comment-btn');
+
+  commentBtns.forEach((btn, index) => {
+    btn.addEventListener('click', () => {
+      displayPopup(index);
+    });
+  });
+
   likeBtn.forEach((btn) => {
     btn.addEventListener('click', () => {
       addLikes(btn.parentElement.parentElement.parentElement.id);
