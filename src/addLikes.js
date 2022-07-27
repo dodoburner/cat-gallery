@@ -1,7 +1,7 @@
 const baseURL = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/GhXrbxU9ueCmDEFf1bVj/likes';
 
 const addLikes = async (catsId) => {
-  const response = await fetch(baseURL, {
+  await fetch(baseURL, {
     method: 'POST',
     body: JSON.stringify({
       item_id: catsId,
