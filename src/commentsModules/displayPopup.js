@@ -1,11 +1,11 @@
 import getCats from '../getCats';
 import addComment from './addComment';
-import displayComments from'./displayComments';
+import displayComments from './displayComments';
 
 const displayPopup = async (index) => {
   const data = await getCats();
   const dataItem = data[index];
-  const itemID = dataItem.name.replace(/ /g, "_")
+  const itemID = dataItem.name.replace(/ /g, '_');
   const popup = document.createElement('div');
   popup.classList.add('popup');
   popup.innerHTML = `
@@ -35,7 +35,7 @@ const displayPopup = async (index) => {
   </div>
   `;
   document.body.appendChild(popup);
-  displayComments(itemID)
+  displayComments(itemID);
 
   const closeBtn = document.querySelector('.close-btn');
   closeBtn.addEventListener('click', () => {
@@ -43,15 +43,15 @@ const displayPopup = async (index) => {
     document.body.removeChild(popup);
   });
 
-  const form = document.querySelector('form')
-  const usernameInput = document.querySelector('#username-input')
-  const commentInput = document.querySelector('#comment-input')
+  const form = document.querySelector('form');
+  const usernameInput = document.querySelector('#username-input');
+  const commentInput = document.querySelector('#comment-input');
   form.addEventListener('submit', (e) => {
-    e.preventDefault()
-    addComment(itemID, usernameInput.value, commentInput.value)
-    usernameInput.value = ''
-    commentInput.value = ''
-  })
+    e.preventDefault();
+    addComment(itemID, usernameInput.value, commentInput.value);
+    usernameInput.value = '';
+    commentInput.value = '';
+  });
 };
 
 export default displayPopup;
