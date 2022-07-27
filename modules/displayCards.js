@@ -31,6 +31,15 @@ const displayCards = async () => {
     `;
     main.appendChild(card);
   });
+  const likeBtn = document.querySelectorAll('.like-btn');
+  likeBtn.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      addLikes(btn.parentElement.parentElement.parentElement.id);
+      const span = btn.parentElement.parentElement.children[2];
+      const spanValue = span.textContent.match(/[0-9]+/);
+      span.innerHTML = `${parseInt(spanValue[0], +1)} likes`;
+    });
+  });
 };
 
 export default displayCards;
