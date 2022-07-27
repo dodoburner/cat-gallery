@@ -1,4 +1,4 @@
-import getCats from './getCats';
+import getCats from '../modules/getCats';
 
 const displayPopup = async (index) => {
   const data = await getCats();
