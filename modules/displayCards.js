@@ -1,5 +1,5 @@
 import getCats from './getCats';
-import displayPopup from '../src/displayPopup';
+import displayPopup from '../src/commentsModules/displayPopup';
 
 const main = document.querySelector('main');
 

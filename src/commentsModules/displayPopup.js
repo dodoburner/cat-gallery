@@ -1,8 +1,11 @@
-import getCats from './getCats';
+import getCats from '../getCats';
+import addComment from './addComment';
+import displayComments from './displayComments';
 
 const displayPopup = async (index) => {
   const data = await getCats();
   const dataItem = data[index];
+  const itemID = dataItem.name.replace(/ /g, '_');
   const popup = document.createElement('div');
   popup.classList.add('popup');
   popup.innerHTML = `
@@ -20,24 +23,34 @@ const displayPopup = async (index) => {
     <div class="popup-comments">
       <h4>Comments <span>(1)</span></h4>
       <ul>
-        <li>03/11/2021 Alex: I like this!!!</li>
-        <li>03/11/2021 Alex: I like this!!!</li>
       </ul>
     </div>
 
     <form action="POST">
       <h4>Add a comment</h4>
-      <input type="text" name="" id="" placeholder="Your name">
-      <textarea name="" id="" placeholder="Your insights"></textarea>
+      <input type="text" name="" id="username-input" placeholder="Your name">
+      <textarea name="" id="comment-input" placeholder="Your insights"></textarea>
       <button>Comment</button>
     </form>
   </div>
   `;
   document.body.appendChild(popup);
+  displayComments(itemID);
+
   const closeBtn = document.querySelector('.close-btn');
   closeBtn.addEventListener('click', () => {
     const popup = document.querySelector('.popup');
     document.body.removeChild(popup);
+  });
+
+  const form = document.querySelector('form');
+  const usernameInput = document.querySelector('#username-input');
+  const commentInput = document.querySelector('#comment-input');
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    addComment(itemID, usernameInput.value, commentInput.value);
+    usernameInput.value = '';
+    commentInput.value = '';
   });
 };
 
