@@ -1,7 +1,8 @@
 import getCats from './getCats';
 import addLikes from '../addLikes';
 import displayLikes from './displayLikes';
-import displayPopup from '../commentsModules/displayPopup'
+import displayPopup from '../commentsModules/displayPopup';
+
 const main = document.querySelector('main');
 
 const displayCards = async () => {
@@ -47,7 +48,7 @@ const displayCards = async () => {
       addLikes(btn.parentElement.parentElement.parentElement.id);
       const span = btn.parentElement.parentElement.children[2];
       const spanValue = span.textContent.match(/[0-9]+/);
-      span.innerHTML = `${parseInt(spanValue[0]) + 1} likes`;
+      span.innerHTML = `${parseInt(spanValue[0], 10)} likes`;
     });
   });
 };
