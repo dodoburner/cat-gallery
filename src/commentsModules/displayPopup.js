@@ -1,4 +1,4 @@
-import getCats from './getCats';
+import getCats from '../getCats';
 import addComment from './addComment';
 import displayComments from'./displayComments';
 
@@ -35,7 +35,7 @@ const displayPopup = async (index) => {
   </div>
   `;
   document.body.appendChild(popup);
-  await displayComments(itemID)
+  displayComments(itemID)
 
   const closeBtn = document.querySelector('.close-btn');
   closeBtn.addEventListener('click', () => {
@@ -49,6 +49,8 @@ const displayPopup = async (index) => {
   form.addEventListener('submit', (e) => {
     e.preventDefault()
     addComment(itemID, usernameInput.value, commentInput.value)
+    usernameInput.value = ''
+    commentInput.value = ''
   })
 };
 

@@ -1,6 +1,6 @@
 import './styles.css';
 import './popup.css';
-import displayPopup from './displayPopup';
+import displayPopup from './commentsModules/displayPopup';
 
 const commentBtns = document.querySelectorAll('.card button');
 

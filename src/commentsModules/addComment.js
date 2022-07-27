@@ -15,7 +15,6 @@ const addComment = async(id, username, comment) => {
   })
 
   appendComment(createDate(), username, comment)
-  commentsContainer.appendChild(newComment)
 }
 
 export default addComment
