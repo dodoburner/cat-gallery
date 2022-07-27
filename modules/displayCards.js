@@ -1,4 +1,5 @@
 import getCats from './getCats';
+import displayPopup from '../src/displayPopup';
 
 const main = document.querySelector('main');
 
@@ -20,6 +21,13 @@ const displayCards = async () => {
   </div>
     `;
     main.appendChild(card);
+  });
+
+  const commentBtns = document.querySelectorAll('.comment-btn');
+  commentBtns.forEach((btn, index) => {
+    btn.addEventListener('click', () => {
+      displayPopup(index);
+    });
   });
 };
 
