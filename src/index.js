@@ -7,7 +7,6 @@ import displayLikes from '../modules/displayLikes';
 import addLikes from './addLikes';
 
 const logoContainer = document.querySelector('.logo');
-
 logoContainer.src = logo;
 
 displayCards();
