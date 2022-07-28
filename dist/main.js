@@ -9,26 +9,6 @@
  */
 (self["webpackChunkcat_gallery"] = self["webpackChunkcat_gallery"] || []).push([["main"],{
 
-/***/ "./modules/displayCards.js":
-/*!*********************************!*\
-  !*** ./modules/displayCards.js ***!
-  \*********************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _getCats__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./getCats */ \"./modules/getCats.js\");\n\n\nconst main = document.querySelector('main');\n\nconst displayCards = async () => {\n  const response = await (0,_getCats__WEBPACK_IMPORTED_MODULE_0__[\"default\"])();\n  console.log(response);\n  const catsArray = await response.slice(0, 6);\n  catsArray.forEach((cat) => {\n    const card = document.createElement('div');\n    card.classList.add('.card');\n    card.innerHTML = `\n    <div class=\"card-container\">\n    <img src=\"${cat.image_link}\" alt=\"\">\n    <div class=\"cat-name\">\n      <p>${cat.name}</p>\n      <button class=\"like-btn\"><i class=\"fa-regular fa-heart\"></i></button>\n    </div>\n    <span>0 likes</span>\n    <button class=\"comment-btn\">Comments</button>\n  </div>\n    `;\n    main.appendChild(card);\n  });\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (displayCards);\n\n//# sourceURL=webpack://cat-gallery/./modules/displayCards.js?");
-
-/***/ }),
-
-/***/ "./modules/getCats.js":
-/*!****************************!*\
-  !*** ./modules/getCats.js ***!
-  \****************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst getCats = async () => {\n  const response = await fetch('https://api.api-ninjas.com/v1/cats?playfulness=5', {\n    headers: {\n      'X-Api-Key': 'nQBIrzqSOqUK8zDmuTBkrw==Ng6tKGAI9cHzhz07',\n    },\n    contentType: 'application/json',\n  });\n  const data = await response.json();\n  return data;\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (getCats);\n\n//# sourceURL=webpack://cat-gallery/./modules/getCats.js?");
-
-/***/ }),
-
 /***/ "./node_modules/css-loader/dist/cjs.js!./src/popup.css":
 /*!*************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js!./src/popup.css ***!
@@ -149,13 +129,63 @@ eval("\n\n/* istanbul ignore next  */\nfunction styleTagTransform(css, styleElem
 
 /***/ }),
 
-/***/ "./src/displayPopup.js":
-/*!*****************************!*\
-  !*** ./src/displayPopup.js ***!
-  \*****************************/
+/***/ "./src/addLikes.js":
+/*!*************************!*\
+  !*** ./src/addLikes.js ***!
+  \*************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _modules_getCats__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../modules/getCats */ \"./modules/getCats.js\");\n\n\nconst displayPopup = async (index) => {\n  const data = await (0,_modules_getCats__WEBPACK_IMPORTED_MODULE_0__[\"default\"])();\n  const dataItem = data[index];\n  const popup = document.createElement('div');\n  popup.classList.add('popup');\n  popup.innerHTML = `\n  <div class=\"popup-container\">\n    <div class=\"close-btn\"><i class=\"fa-solid fa-xmark\"></i></div>\n    <img class=\"popup-img\" src=\"${dataItem.image_link}\" alt=\"\">\n    <h1 class=\"popup-title\">${dataItem.name}</h1>\n    <ul class=\"info\">\n      <li>Origin: ${dataItem.origin}</li>\n      <li>Intelligence (0-5): ${dataItem.intelligence}</li>\n      <li>General health (0-5): ${dataItem.general_health}</li>\n      <li>Life expectancy: ${dataItem.min_life_expectancy}-${dataItem.max_life_expectancy} years</li>\n    </ul>\n\n    <div class=\"popup-comments\">\n      <h4>Comments <span>(1)</span></h4>\n      <ul>\n        <li>03/11/2021 Alex: I like this!!!</li>\n        <li>03/11/2021 Alex: I like this!!!</li>\n      </ul>\n    </div>\n\n    <form action=\"POST\">\n      <h4>Add a comment</h4>\n      <input type=\"text\" name=\"\" id=\"\" placeholder=\"Your name\">\n      <textarea name=\"\" id=\"\" placeholder=\"Your insights\"></textarea>\n      <button>Comment</button>\n    </form>\n  </div>\n  `;\n  document.body.appendChild(popup);\n  const closeBtn = document.querySelector('.close-btn');\n  closeBtn.addEventListener('click', () => {\n    const popup = document.querySelector('.popup');\n    document.body.removeChild(popup);\n  });\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (displayPopup);\n\n\n//# sourceURL=webpack://cat-gallery/./src/displayPopup.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst baseURL = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/GhXrbxU9ueCmDEFf1bVj/likes';\n\nconst addLikes = async (catsId) => {\n  await fetch(baseURL, {\n    method: 'POST',\n    body: JSON.stringify({\n      item_id: catsId,\n    }),\n    headers: {\n      'Content-Type': 'application/json', charset: 'UTF-8',\n    },\n  });\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (addLikes);\n\n//# sourceURL=webpack://cat-gallery/./src/addLikes.js?");
+
+/***/ }),
+
+/***/ "./src/commentsModules/addComment.js":
+/*!*******************************************!*\
+  !*** ./src/commentsModules/addComment.js ***!
+  \*******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _createDate__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./createDate */ \"./src/commentsModules/createDate.js\");\n/* harmony import */ var _appendComment__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./appendComment */ \"./src/commentsModules/appendComment.js\");\n\n\n\nconst addComment = async (id, username, comment) => {\n  await fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/19XTEH8RQiXryaA222mb/comments', {\n    method: 'POST',\n    body: JSON.stringify({\n      item_id: `${id}`,\n      username: `${username}`,\n      comment: `${comment}`,\n    }),\n    headers: {\n      'Content-type': 'application/json; charset=utf-8',\n    },\n  });\n\n  (0,_appendComment__WEBPACK_IMPORTED_MODULE_1__[\"default\"])((0,_createDate__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(), username, comment);\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (addComment);\n\n//# sourceURL=webpack://cat-gallery/./src/commentsModules/addComment.js?");
+
+/***/ }),
+
+/***/ "./src/commentsModules/appendComment.js":
+/*!**********************************************!*\
+  !*** ./src/commentsModules/appendComment.js ***!
+  \**********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst appendComment = (date, username, comment) => {\n  const commentsContainer = document.querySelector('.popup-comments ul');\n  const newComment = document.createElement('li');\n  newComment.innerHTML = `\n    ${date} ${username}: ${comment}\n  `;\n  commentsContainer.appendChild(newComment);\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (appendComment);\n\n//# sourceURL=webpack://cat-gallery/./src/commentsModules/appendComment.js?");
+
+/***/ }),
+
+/***/ "./src/commentsModules/createDate.js":
+/*!*******************************************!*\
+  !*** ./src/commentsModules/createDate.js ***!
+  \*******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst createDate = () => {\n  let today = new Date();\n  const dd = String(today.getDate()).padStart(2, '0');\n  const mm = String(today.getMonth() + 1).padStart(2, '0');\n  const yyyy = today.getFullYear();\n  today = `${yyyy}-${mm}-${dd}`;\n  return today;\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (createDate);\n\n//# sourceURL=webpack://cat-gallery/./src/commentsModules/createDate.js?");
+
+/***/ }),
+
+/***/ "./src/commentsModules/displayComments.js":
+/*!************************************************!*\
+  !*** ./src/commentsModules/displayComments.js ***!
+  \************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _appendComment__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./appendComment */ \"./src/commentsModules/appendComment.js\");\n\n\nconst displayComments = async (id) => {\n  const result = await fetch(`https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/19XTEH8RQiXryaA222mb/comments?item_id=${id}`);\n  const data = await result.json();\n  if (data.length > 0) {\n    data.forEach((el) => {\n      (0,_appendComment__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(el.creation_date, el.username, el.comment);\n    });\n  }\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (displayComments);\n\n//# sourceURL=webpack://cat-gallery/./src/commentsModules/displayComments.js?");
+
+/***/ }),
+
+/***/ "./src/commentsModules/displayPopup.js":
+/*!*********************************************!*\
+  !*** ./src/commentsModules/displayPopup.js ***!
+  \*********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _modules_getCats__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../modules/getCats */ \"./src/modules/getCats.js\");\n/* harmony import */ var _addComment__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./addComment */ \"./src/commentsModules/addComment.js\");\n/* harmony import */ var _displayComments__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./displayComments */ \"./src/commentsModules/displayComments.js\");\n\n\n\n\nconst displayPopup = async (index) => {\n  const data = await (0,_modules_getCats__WEBPACK_IMPORTED_MODULE_0__[\"default\"])();\n  const dataItem = data[index];\n  const itemID = dataItem.name.replace(/ /g, '_');\n  const popup = document.createElement('div');\n  popup.classList.add('popup');\n  popup.innerHTML = `\n  <div class=\"popup-container\">\n    <div class=\"close-btn\"><i class=\"fa-solid fa-xmark\"></i></div>\n    <img class=\"popup-img\" src=\"${dataItem.image_link}\" alt=\"\">\n    <h1 class=\"popup-title\">${dataItem.name}</h1>\n    <ul class=\"info\">\n      <li>Origin: ${dataItem.origin}</li>\n      <li>Intelligence (0-5): ${dataItem.intelligence}</li>\n      <li>General health (0-5): ${dataItem.general_health}</li>\n      <li>Life expectancy: ${dataItem.min_life_expectancy}-${dataItem.max_life_expectancy} years</li>\n    </ul>\n\n    <div class=\"popup-comments\">\n      <h4>Comments <span>(1)</span></h4>\n      <ul>\n      </ul>\n    </div>\n\n    <form action=\"POST\">\n      <h4>Add a comment</h4>\n      <input type=\"text\" name=\"\" id=\"username-input\" placeholder=\"Your name\">\n      <textarea name=\"\" id=\"comment-input\" placeholder=\"Your insights\"></textarea>\n      <button>Comment</button>\n    </form>\n  </div>\n  `;\n  document.body.appendChild(popup);\n  (0,_displayComments__WEBPACK_IMPORTED_MODULE_2__[\"default\"])(itemID);\n\n  const closeBtn = document.querySelector('.close-btn');\n  closeBtn.addEventListener('click', () => {\n    const popup = document.querySelector('.popup');\n    document.body.removeChild(popup);\n  });\n\n  const form = document.querySelector('form');\n  const usernameInput = document.querySelector('#username-input');\n  const commentInput = document.querySelector('#comment-input');\n  form.addEventListener('submit', (e) => {\n    e.preventDefault();\n    (0,_addComment__WEBPACK_IMPORTED_MODULE_1__[\"default\"])(itemID, usernameInput.value, commentInput.value);\n    usernameInput.value = '';\n    commentInput.value = '';\n  });\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (displayPopup);\n\n\n//# sourceURL=webpack://cat-gallery/./src/commentsModules/displayPopup.js?");
 
 /***/ }),
 
@@ -165,7 +195,47 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _styles_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles.css */ \"./src/styles.css\");\n/* harmony import */ var _modules_displayCards__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../modules/displayCards */ \"./modules/displayCards.js\");\n/* harmony import */ var _images_cat_logo_png__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./images/cat-logo.png */ \"./src/images/cat-logo.png\");\n/* harmony import */ var _popup_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./popup.css */ \"./src/popup.css\");\n/* harmony import */ var _displayPopup__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./displayPopup */ \"./src/displayPopup.js\");\n\n\n\n\n\n\nconst logoContainer = document.querySelector('.logo');\n\nlogoContainer.src = _images_cat_logo_png__WEBPACK_IMPORTED_MODULE_2__;\n\n(0,_modules_displayCards__WEBPACK_IMPORTED_MODULE_1__[\"default\"])();\n\nconst commentBtns = document.querySelectorAll('.card button');\n\ncommentBtns.forEach((btn, index) => {\n  btn.addEventListener('click', () => {\n    (0,_displayPopup__WEBPACK_IMPORTED_MODULE_4__[\"default\"])(index);\n  });\n});\n\n\n//# sourceURL=webpack://cat-gallery/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _styles_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles.css */ \"./src/styles.css\");\n/* harmony import */ var _modules_displayCards__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/displayCards */ \"./src/modules/displayCards.js\");\n/* harmony import */ var _images_cat_logo_png__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./images/cat-logo.png */ \"./src/images/cat-logo.png\");\n/* harmony import */ var _popup_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./popup.css */ \"./src/popup.css\");\n/* harmony import */ var _modules_counters__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/counters */ \"./src/modules/counters.js\");\n\n\n\n\n\n\nconst logoContainer = document.querySelector('.logo');\nlogoContainer.src = _images_cat_logo_png__WEBPACK_IMPORTED_MODULE_2__;\n\n(0,_modules_displayCards__WEBPACK_IMPORTED_MODULE_1__[\"default\"])();\n(0,_modules_counters__WEBPACK_IMPORTED_MODULE_4__[\"default\"])();\n\n\n\n//# sourceURL=webpack://cat-gallery/./src/index.js?");
+
+/***/ }),
+
+/***/ "./src/modules/counters.js":
+/*!*********************************!*\
+  !*** ./src/modules/counters.js ***!
+  \*********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst itemsCounter = document.querySelector('.items-counter');\n\nfunction getItems(count) {\n  const items = [];\n  for (let i = 0; i < count; i++) {\n    items.push(itemsCounter.innerHTML);\n  }\n  return items;\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (getItems);\n\n//# sourceURL=webpack://cat-gallery/./src/modules/counters.js?");
+
+/***/ }),
+
+/***/ "./src/modules/displayCards.js":
+/*!*************************************!*\
+  !*** ./src/modules/displayCards.js ***!
+  \*************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _getCats__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./getCats */ \"./src/modules/getCats.js\");\n/* harmony import */ var _addLikes__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../addLikes */ \"./src/addLikes.js\");\n/* harmony import */ var _displayLikes__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./displayLikes */ \"./src/modules/displayLikes.js\");\n/* harmony import */ var _commentsModules_displayPopup__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../commentsModules/displayPopup */ \"./src/commentsModules/displayPopup.js\");\n\n\n\n\n\nconst main = document.querySelector('main');\n\nconst displayCards = async () => {\n  const likesArray = await (0,_displayLikes__WEBPACK_IMPORTED_MODULE_2__[\"default\"])();\n  const response = await (0,_getCats__WEBPACK_IMPORTED_MODULE_0__[\"default\"])();\n  const catsArray = await response.slice(0, 6);\n\n  catsArray.forEach((cat) => {\n    const card = document.createElement('div');\n    card.classList.add('.card');\n    card.id = cat.name.replace(/ /g, '_');\n    let likeNumber = 0;\n    likesArray.forEach((like) => {\n      if (like.item_id === card.id) {\n        likeNumber = like.likes;\n      }\n    });\n    card.innerHTML = `\n    <div class=\"card-container\">\n    <img src=\"${cat.image_link}\" alt=\"\">\n    <div class=\"cat-name\">\n      <p>${cat.name}</p>\n      <button class=\"like-btn\"><i class=\"fa-regular fa-heart\"></i></button>\n    </div>\n    <span class=\"counter\">${likeNumber} likes</span>\n    <button class=\"comment-btn\">Comments</button>\n  </div>\n    `;\n    main.appendChild(card);\n  });\n\n  const likeBtn = document.querySelectorAll('.like-btn');\n  const commentBtns = document.querySelectorAll('.comment-btn');\n\n  commentBtns.forEach((btn, index) => {\n    btn.addEventListener('click', () => {\n      (0,_commentsModules_displayPopup__WEBPACK_IMPORTED_MODULE_3__[\"default\"])(index);\n    });\n  });\n\n  likeBtn.forEach((btn) => {\n    btn.addEventListener('click', () => {\n      (0,_addLikes__WEBPACK_IMPORTED_MODULE_1__[\"default\"])(btn.parentElement.parentElement.parentElement.id);\n      const span = btn.parentElement.parentElement.children[2];\n      const spanValue = span.textContent.match(/[0-9]+/);\n      span.innerHTML = `${parseInt(spanValue[0], 10)} likes`;\n    });\n  });\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (displayCards);\n\n//# sourceURL=webpack://cat-gallery/./src/modules/displayCards.js?");
+
+/***/ }),
+
+/***/ "./src/modules/displayLikes.js":
+/*!*************************************!*\
+  !*** ./src/modules/displayLikes.js ***!
+  \*************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst displayLikes = async () => {\n  const response = await fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/GhXrbxU9ueCmDEFf1bVj/likes');\n  const getLikes = await response.json();\n  return getLikes;\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (displayLikes);\n\n//# sourceURL=webpack://cat-gallery/./src/modules/displayLikes.js?");
+
+/***/ }),
+
+/***/ "./src/modules/getCats.js":
+/*!********************************!*\
+  !*** ./src/modules/getCats.js ***!
+  \********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst getCats = async () => {\n  const response = await fetch('https://api.api-ninjas.com/v1/cats?playfulness=5', {\n    headers: {\n      'X-Api-Key': 'nQBIrzqSOqUK8zDmuTBkrw==Ng6tKGAI9cHzhz07',\n    },\n    contentType: 'application/json',\n  });\n  const data = await response.json();\n  return data;\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (getCats);\n\n//# sourceURL=webpack://cat-gallery/./src/modules/getCats.js?");
 
 /***/ }),
 

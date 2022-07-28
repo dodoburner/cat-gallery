@@ -1,11 +1,27 @@
-const itemsCounter = document.querySelector('.items-counter');
+const itemsCounters = document.querySelector('items-counter');
 
 function getItems(count) {
   const items = [];
   for (let i = 0; i < count; i++) {
-    items.push(itemsCounter.innerHTML);
+    items.push(itemsCounters.innerHTML);
   }
   return items;
 };
 
-export default getItems;
+function counters(data) {
+itemsCounters.innerHTML = counters(data);
+};
+
+function countersLikes(data) {
+  const likesCount = document.querySelectorAll('.counters-like');
+likesCount.forEach((item) => {
+  data.forEach((likes) => {
+    if (item.Id === likes.item_id) {
+      item.innerHTML = likes.likes;
+      console.log(data);
+    }
+  })
+} )
+  }
+
+export default {getItems, counters, countersLikes};

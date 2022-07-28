@@ -48,7 +48,7 @@ const displayCards = async () => {
       addLikes(btn.parentElement.parentElement.parentElement.id);
       const span = btn.parentElement.parentElement.children[2];
       const spanValue = span.textContent.match(/[0-9]+/);
-      span.innerHTML = `${parseInt(spanValue[0], 10)} likes`;
+      span.innerHTML = `${parseInt(spanValue[0], 10) + 1} likes`;
     });
   });
 };
