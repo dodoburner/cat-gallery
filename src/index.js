@@ -8,5 +8,4 @@ const logoContainer = document.querySelector('.logo');
 logoContainer.src = logo;
 
 displayCards();
-getItems();
 counters();
