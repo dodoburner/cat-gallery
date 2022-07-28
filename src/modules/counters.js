@@ -1,27 +1,7 @@
-const itemsCounters = document.querySelector('items-counter');
-
-function getItems(count) {
-  const items = [];
-  for (let i = 0; i < count; i++) {
-    items.push(itemsCounters.innerHTML);
-  }
-  return items;
+const counters = () => {
+  const numOfCard = document.querySelector('.main, .items-counter').children.length;
+  const cardCounter = document.getElementById('items-counter');
+  cardCounter.innerHTML = `${numOfCard}`;
 };
 
-function counters(data) {
-itemsCounters.innerHTML = counters(data);
-};
-
-function countersLikes(data) {
-  const likesCount = document.querySelectorAll('.counters-like');
-likesCount.forEach((item) => {
-  data.forEach((likes) => {
-    if (item.Id === likes.item_id) {
-      item.innerHTML = likes.likes;
-      console.log(data);
-    }
-  })
-} )
-  }
-
-export default {getItems, counters, countersLikes};
+export default counters;
