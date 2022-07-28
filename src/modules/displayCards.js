@@ -33,9 +33,9 @@ const displayCards = async () => {
   </div>
     `;
     main.appendChild(card);
-    counters();
   });
-
+  counters();
+  
   const likeBtn = document.querySelectorAll('.like-btn');
   const commentBtns = document.querySelectorAll('.comment-btn');
 
