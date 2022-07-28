@@ -21,7 +21,7 @@ const displayPopup = async (index) => {
     </ul>
 
     <div class="popup-comments">
-      <h4>Comments <span>(1)</span></h4>
+      <h4>Comments <span class="comments-counter"></span></h4>
       <ul>
       </ul>
     </div>
