@@ -2,6 +2,7 @@ import getCats from './getCats';
 import addLikes from '../addLikes';
 import displayLikes from './displayLikes';
 import displayPopup from '../commentsModules/displayPopup';
+import counters from './counters';
 
 const main = document.querySelector('main');
 
@@ -33,7 +34,7 @@ const displayCards = async () => {
     `;
     main.appendChild(card);
   });
-
+  counters();
   const likeBtn = document.querySelectorAll('.like-btn');
   const commentBtns = document.querySelectorAll('.comment-btn');
 
