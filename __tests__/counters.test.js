@@ -14,9 +14,10 @@ test('Expect counter to be 1', () => {
   expect(items.textContent).toBe('(1)');
 });
 
-test('Expect counter to be 5', () => {
+test('Expect counter to be 6', () => {
   document.body.innerHTML = ` <div class="main">
       <p id="items-counter"></p>
+      <p></p>
       <p></p>
       <p></p>
       <p></p>
@@ -24,5 +25,5 @@ test('Expect counter to be 5', () => {
     </div> `;
   counters();
   const items = document.querySelector('#items-counter');
-  expect(items.textContent).toBe('(5)');
+  expect(items.textContent).toBe('(6)');
 });
