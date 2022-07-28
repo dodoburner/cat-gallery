@@ -9,7 +9,7 @@ const displayComments = async (id) => {
       appendComment(el.creation_date, el.username, el.comment);
     });
   }
-  counter()
+  counter();
 };
 
 export default displayComments;

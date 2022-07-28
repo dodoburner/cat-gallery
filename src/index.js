@@ -6,4 +6,4 @@ import './popup.css';
 const logoContainer = document.querySelector('.logo');
 logoContainer.src = logo;
 
-// displayCards();
+displayCards();

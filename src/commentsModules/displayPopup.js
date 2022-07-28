@@ -1,7 +1,6 @@
 import getCats from '../modules/getCats';
 import addComment from './addComment';
 import displayComments from './displayComments';
-import counter from './commentCounter';
 
 const displayPopup = async (index) => {
   const data = await getCats();
@@ -36,7 +35,7 @@ const displayPopup = async (index) => {
   </div>
   `;
   document.body.appendChild(popup);
-  displayComments(itemID)
+  displayComments(itemID);
 
   const closeBtn = document.querySelector('.close-btn');
   closeBtn.addEventListener('click', () => {

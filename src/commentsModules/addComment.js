@@ -16,7 +16,7 @@ const addComment = async (id, username, comment) => {
   });
 
   appendComment(createDate(), username, comment);
-  counter()
+  counter();
 };
 
 export default addComment;

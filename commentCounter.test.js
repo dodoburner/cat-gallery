@@ -2,23 +2,23 @@
  * @jest-environment jsdom
  */
 
-import counter from "./src/commentsModules/commentCounter";
+import counter from './src/commentsModules/commentCounter';
 
 describe('Counting the number of comments', () => {
-  test('0 comments', () => { 
+  test('0 comments', () => {
     document.body.innerHTML = `
     <div class="popup-comments">
       <p class="comments-counter"></p>
       <ul>
       </ul>
     <div/>
-    `
-    counter()
-    const commentsCounter = document.querySelector('.comments-counter')
-    expect(commentsCounter.textContent).toBe('(0)')
-   })
+    `;
+    counter();
+    const commentsCounter = document.querySelector('.comments-counter');
+    expect(commentsCounter.textContent).toBe('(0)');
+  });
 
-   test('1 comment', () => { 
+  test('1 comment', () => {
     document.body.innerHTML = `
     <div class="popup-comments">
       <p class="comments-counter"></p>
@@ -26,13 +26,13 @@ describe('Counting the number of comments', () => {
        <li></li>
       </ul>
     <div/>
-    `
-    counter()
-    const commentsCounter = document.querySelector('.comments-counter')
-    expect(commentsCounter.textContent).toBe('(1)')
-   })
+    `;
+    counter();
+    const commentsCounter = document.querySelector('.comments-counter');
+    expect(commentsCounter.textContent).toBe('(1)');
+  });
 
-   test('multiple comments', () => { 
+  test('multiple comments', () => {
     document.body.innerHTML = `
     <div class="popup-comments">
       <p class="comments-counter"></p>
@@ -44,9 +44,9 @@ describe('Counting the number of comments', () => {
         <li></li>
       </ul>
     <div/>
-    `
-    counter()
-    const commentsCounter = document.querySelector('.comments-counter')
-    expect(commentsCounter.textContent).toBe('(5)')
-   })
-})
+    `;
+    counter();
+    const commentsCounter = document.querySelector('.comments-counter');
+    expect(commentsCounter.textContent).toBe('(5)');
+  });
+});
