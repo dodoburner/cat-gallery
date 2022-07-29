@@ -23,7 +23,7 @@ const displayCards = async () => {
     });
     card.innerHTML = `
     <div class="card-container">
-    <img src="${cat.image_link}" alt="">
+    <img class="cat" src="${cat.image_link}" alt="">
     <div class="cat-name">
       <p>${cat.name}</p>
       <button class="like-btn"><i class="fa-regular fa-heart"></i></button>
