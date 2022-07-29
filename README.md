@@ -2,8 +2,8 @@
 
  This website App displays information from Cat Ninjas Gallery. It also allows users to submit their comments and likes for their favorite cat. All data is preserved, thanks to the external API, and involvement API
 
-![Desktop-Images](./images/Screenshot from home-page.png),
-                 (./images/Screenshot Screenshot from popup.png)
+![Screenshots]([./images/Screenshot from home-page.png](https://github.com/dodoburner/cat-gallery/blob/dev/src/images/Screenshot%20from%20home-page.png)),
+                 ([./images/Screenshot Screenshot from popup.png](https://github.com/dodoburner/cat-gallery/blob/dev/src/images/Screenshot%20from%20popup.png))
 ## Built With
 - Javascript
 - Html
