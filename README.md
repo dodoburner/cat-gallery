@@ -12,9 +12,9 @@
 - Webpack
 
 ## Live demo
-[LiveLink]
+[LiveLink](https://dodoburner.github.io/cat-gallery/)
 
-## Presentation video
+## Presentation video [https://drive.google.com/file/d/1AzpPOII5AXShoxlxp7xtMvWwtFtufWuN/view?usp=sharing]
 
 ## Getting Started
 To get a local copy of this project, follow these simple steps:
