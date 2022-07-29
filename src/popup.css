@@ -1,0 +1,117 @@
+.popup {
+  position: fixed;
+  overflow: auto;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px;
+  width: 100%;
+  background: rgba(186, 151, 238, 0.8);
+  backdrop-filter: blur(3px);
+}
+
+.popup-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: url(images/paw-163683_1280.jpg);
+  background-position-x: center;
+  background-position-y: bottom;
+  background-repeat: repeat;
+  background-size: 15%;
+  border-radius: 20px;
+  border: 2px dotted black;
+  padding: 20px;
+  color: rgb(11, 10, 10);
+  width: 55%;
+}
+
+.close-btn {
+  position: absolute;
+  right: 30px;
+  top: 30px;
+  font-size: 34px;
+  border-radius: 10px;
+  background-color: white;
+}
+
+.fa-solid,
+.fas {
+  color: black;
+}
+
+.popup-img {
+  width: 80%;
+  max-width: 700px;
+  border: 2px solid black;
+}
+
+.popup-title {
+  margin: 10px 0;
+  color: rgb(253, 249, 249);
+  background-color: rgba(11, 10, 10, 0.823);
+}
+
+.info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 10px 0;
+  background-color: rgba(11, 10, 10, 0.823);
+}
+
+.info li {
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.popup-comments {
+  margin: 10px 0;
+  background-color: rgba(11, 10, 10, 0.823);
+}
+
+.popup h4 {
+  text-align: center;
+  font-size: 22px;
+  margin: 10px 0;
+  background-color: rgba(11, 10, 10, 0.823);
+}
+
+.popup-comments li {
+  font-size: 19px;
+  margin: 10px 0;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  color: black;
+}
+
+input,
+textarea {
+  align-self: center;
+  padding: 10px;
+  background-color: rgba(11, 10, 10, 0.823);
+}
+
+textarea {
+  width: 250px;
+  height: 100px;
+  margin: 10px 0;
+}
+
+form button {
+  width: 100px;
+  padding: 10px;
+  align-self: center;
+}
+
+@media only screen and (max-width: 768px) {
+  .popup-container {
+    width: 100%;
+  }
+}
